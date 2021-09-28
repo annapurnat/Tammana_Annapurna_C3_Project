@@ -69,7 +69,11 @@ class RestaurantTest {
     public void  selecting_menu_items_it_should_return_order_value() {
             ArrayList<String> selectedItems=new ArrayList<>();
             int orderValue;
+            selectedItems.add(restaurant.getMenu().get(0).getName());
+            selectedItems.add(restaurant.getMenu().get(1).getName());
             orderValue=restaurant.calculateOrderValue(selectedItems);
+             assertEquals(388,orderValue);
+
 
     }
 }

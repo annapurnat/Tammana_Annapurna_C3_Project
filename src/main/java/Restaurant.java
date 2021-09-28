@@ -43,7 +43,7 @@ public class Restaurant {
         Item newItem = new Item(name,price);
         menu.add(newItem);
     }
-    
+
     public void removeFromMenu(String itemName) throws itemNotFoundException {
 
         Item itemToBeRemoved = findItemByName(itemName);
@@ -61,9 +61,23 @@ public class Restaurant {
 
     }
 
-    public String getName() {
+    public String getName(){
         return name;
+
     }
 
 
+    public int calculateOrderValue(ArrayList<String> selectedItemNames) {
+        int orderValue=0;
+        Item selectedItem;
+        for(String itemName:selectedItemNames){
+
+            if(findItemByName(itemName)!=null){
+               selectedItem= findItemByName(itemName);
+               orderValue= selectedItem.getPrice()+orderValue;
+            }
+
+        }
+        return orderValue;
+    }
 }
